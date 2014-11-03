@@ -5,6 +5,11 @@
 Activerecord::BitField provide a feature of mapping bit fileds to RDB table in ActiveRecord.
 This is reinventing the wheel; see `See Also` section.
 
+## Requirement
+
+Ruby 2.1.0 or higher.
+Because, this using Array#to_h.
+
 ## Installation
 
 Add this line to your application's Gemfile:
