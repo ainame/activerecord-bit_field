@@ -6,11 +6,11 @@ require 'active_record/bit_field/version'
 Gem::Specification.new do |spec|
   spec.name          = "activerecord-bit_field"
   spec.version       = ActiveRecord::BitField::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["TODO: Write your email address"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.authors       = ["ainame"]
+  spec.email         = ["s.namai.09@gmail.com"]
+  spec.summary       = %q{provide a feature of mapping bit fileds to RDB table in ActiveRecord.}
+  spec.description   = %q{Activerecord::BitField provide a feature of mapping bit fileds to RDB table in ActiveRecord.}
+  spec.homepage      = "https://github.com/ainame/activerecord-bit_field"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
