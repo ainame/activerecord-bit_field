@@ -1,5 +1,7 @@
 # Activerecord::BitField
 
+[![Build Status](https://travis-ci.org/ainame/activerecord-bit_field.svg?branch=master)](https://travis-ci.org/ainame/activerecord-bit_field)
+
 Activerecord::BitField provide a feature of mapping bit fileds to RDB table in ActiveRecord.
 This is reinventing the wheel; see `See Also` section.
 
