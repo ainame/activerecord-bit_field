@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe ActiveRecord::BitField do
+
+  describe '.<column>_fields' do
+    it 'should return field names' do
+      expect(Dummy.flags_fields).to eq([:aaa, :bbb, :ccc])
+    end
+  end
+
   context 'using bit_field DSL by flags column' do
     let(:dummy) { Dummy.new }
     let(:dummy_invert) { DummyInvert.new }
