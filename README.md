@@ -2,13 +2,13 @@
 
 [![Build Status](https://travis-ci.org/ainame/activerecord-bit_field.svg?branch=master)](https://travis-ci.org/ainame/activerecord-bit_field)
 
-Activerecord::BitField provide a feature of mapping bit fileds to RDB table in ActiveRecord.
-This is reinventing the wheel; see `See Also` section.
+Activerecord::BitField provides a feature of mapping bit fileds to RDB table in ActiveRecord.
+This is sort of reinventing the wheel. See `See Also` section.
 
 ## Requirement
 
 Ruby 2.1.0 or higher.
-Because, this using Array#to_h.
+This lib is using Array#to_h.
 
 ## Installation
 
@@ -28,9 +28,9 @@ Or install it yourself as:
 
 ## Usage
 
-At first, `require 'active_record/bit_field'` when don't using autoload.
-Next, define the integer column to using management of fields.
-Finaly, declare the bit_field in arbitrary models.
+0. Put `require 'active_record/bit_field'` if you don't use autoload
+1. Define the integer column to using management of fields and create a migration file
+2. Declare the bit_field in arbitrary models
 
 ```ruby
 class AddFilePermissionsTable < ActiveRecord::Migration
@@ -75,14 +75,10 @@ file_permission.permissin # => { read: false, write: true, execute: true }
 
 ### Options
 
-ActiveRecord::BitField can easily realize default-true bit field.
-In normaly, specify `DEFAULT 0` to fields column, then turn bit off(0) represent false
-and turn bit on(1) represent true. If you want to use default-true bit field,
-you maybe specify `DEFAULT 1` in table schema. But, when you want to add other field
-in that column, how do it?
+ActiveRecord::BitField can achieve default-true bit field easily.
+Normally, developers specify `DEFAULT 0` to fields column, then "0" bit is supposed to represent `false` and "1" bit is supposed to represent `true`. If you want to use a single bit field which is true by default in a single column, perhaps, you may need to specify `DEFAULT 1` in the table schema. Then there would be a problem. What if you want to add additional fields to that existing column? How can we prepare default values for rest of new bit fields?
 
-ActiveRecord::BitField ready `invert` option. If you provide true value with :invert key,
-ActiveRecord::BitField invert dealing of bit state; turn bit off(0) represent true and turn bit on(1) represent false.
+`ActiveRecord::BitField` provides `invert` option. If you set `true` value with "invert" key, `ActiveRecord::BitField` deals with bit state oppositely; "0" bit behaves `true` and "1" bit behaves false.
 
 ```ruby
 class FilePermission < ActiveRecrod::Base
@@ -97,9 +93,7 @@ file_permisson.read? #=> true in default
 
 ## See Also
 
-You can use other products in same needs.
-This plugin don't have the select query each fields feature.
-But, these have it.
+You can use other products in the same need. This plugin doesn't have the select query each fields feature, but these have it.
 
 * [pboling/flag_shih_tzu](https://github.com/pboling/flag_shih_tzu)
 * [grosser/bitfields](https://github.com/grosser/bitfields)
